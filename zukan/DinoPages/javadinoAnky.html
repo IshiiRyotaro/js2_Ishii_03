@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" style="background-image: url(../img/earth.jpg);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title class="pname">アンキロサウルス</title>
+    <link rel="stylesheet" href="./DinoPages.css">
+</head>
+
+<body class="wrap">
+    <div class="maincont">
+        <h1 class="name">アンキロサウルス<br>（学名: Ankylosaurus）</h1>
+        <img src="../Dinopic/ankypic.jpeg" alt="" class="dinopic">
+    </div>
+    <div class="undcont">
+        <div class="undtex">
+            <p class="cen">生息<br>約6,700万年前から約6,500万年前の白亜紀後期<br>現在の北アメリカ大陸</p>
+            <p class="size">サイズ<br>約6メートルから8メートル</p>
+            <p class="weight">重さ<br>約4トンから6トン</p>
+            <p class="tex">説明<br>アンキロサウルスは全身が堅い骨板で覆われており、背中には大きな骨のトゲが並んでいました。<br>
+                また、後ろには強力な棍棒状の尾がありました。<br>
+                肉食恐竜から身を守るためにほぼ完全な装甲を持っており、<br>
+                時折、体を地面に埋めて身を隠すこともあったと考えられています。<br>
+                最初のアンキロサウルスの化石はアメリカで見つかり、北アメリカを中心に複数の化石が発見されています。<br>
+                白亜紀末の大量絶滅事変によって、アンキロサウルスも絶滅しました。</p>
+        </div>
+        <div class="side">
+            <button id="fav">連れていく</button>
+            <ul class="favlist">
+            </ul>
+            <button id="totop"><a href="../javadino.html">トップに戻る</a></button>
+        </div>
+    </div>
+
+</body>
+
+<script src="../jquery-2.1.3.min.js"></script>
+<script>
+    document.getElementById('fav').addEventListener('click', function () {
+        // 保存したいページの情報を取得
+        let pageUrl = window.location.href;
+        let pageTitle = document.title;
+
+        localStorage.setItem(pageUrl, pageTitle);
+        // localStorage.setItem('PageTitle', favTitle);
+
+        alert('アンキロサウルスの名前は『連結したトカゲ』という意味！連結とは...？');
+    });
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        let favoritePageElement = document.createElement('li');
+        favoritePageElement.innerHTML = '<a href="' + key + '">' + value + '</a>';
+        $(".favlist").append(favoritePageElement);
+
+        $(favoritePageElement).click(function () {
+            window.location.href = key;
+            return false;
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+<!-- 2行目以降をコピーして使ってね -->
+<!DOCTYPE html>
+<html lang="ja" style="background-image: url(../img/earth.jpg);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title class="pname">恐竜の名前</title>
+    <link rel="stylesheet" href="./DinoPages.css">
+</head>
+
+<body class="wrap">
+    <div class="maincont">
+        <h1 class="name">恐竜の名前<br>（学名: ）</h1>
+        <img src="" alt="" class="dinopic">
+        <!-- 上のイメージに./Dinopicに格納した写真を紐づけてね -->
+    </div>
+    <div class="undcont">
+        <div class="undtex">
+            <p class="cen">生息<br><br></p>
+            <p class="size">サイズ<br></p>
+            <p class="weight">重さ<br></p>
+            <p class="tex">説明<br><br>
+                <br>
+                <br>
+                <br>
+                <br>
+                </p>
+        </div>
+        <div class="side">
+            <button id="fav">連れていく</button>
+            <ul class="favlist">
+            </ul>
+            <button id="totop"><a href="../javadino.html">トップに戻る</a></button>
+        </div>
+    </div>
+
+</body>
+
+<script src="../jquery-2.1.3.min.js"></script>
+<script>
+    document.getElementById('fav').addEventListener('click', function () {
+        // 保存したいページの情報を取得
+        let pageUrl = window.location.href;
+        let pageTitle = document.title;
+
+        localStorage.setItem(pageUrl, pageTitle);
+        // localStorage.setItem('PageTitle', favTitle);
+
+        alert('');
+        // ここに入れたコメントがアラートで表示されます！自我を出していこう
+    });
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        let favoritePageElement = document.createElement('li');
+        favoritePageElement.innerHTML = '<a href="' + key + '">' + value + '</a>';
+        $(".favlist").append(favoritePageElement);
+
+        $(favoritePageElement).click(function () {
+            window.location.href = key;
+            return false;
+        });
+    }
+</script>
+
+</html>

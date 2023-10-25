@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja" style="background-image: url(../img/earth.jpg);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title class="pname">タルボサウルス</title>
+    <link rel="stylesheet" href="./DinoPages.css">
+</head>
+
+<body class="wrap">
+    <div class="maincont">
+        <h1 class="name">タルボサウルス<br>（学名: Tarbosaurus bataar）</h1>
+        <img src="../Dinopic/Tarbpic.jpeg" alt="" class="dinopic">
+    </div>
+    <div class="undcont">
+        <div class="undtex">
+            <p class="cen">生息<br>約7,100万年前から約6,600万年前の白亜紀後期<br>現在のモンゴル地方</p>
+            <p class="size">サイズ<br>約12メートルから13メートル</p>
+            <p class="weight">重さ<br>約4.5トンから5.6トン</p>
+            <p class="tex">説明<br>タルボサウルスは大きな頭部と強力な顎を持ち、鋭い歯で獲物を捕らえました。<br>
+                手足も力強く、特に前肢の三本指は獲物の捕獲に使われました。<br>
+                肉食恐竜であり、主に他の小型恐竜や哺乳類を狩って生計を立てていました。<br>
+                最初のタルボサウルスの化石はモンゴルで発見され、その後もアジア中に多くの化石が見つかっています。<br>
+                白亜紀末の大量絶滅事変によって、タルボサウルスも絶滅しました。</p>
+        </div>
+        <div class="side">
+            <button id="fav">連れていく</button>
+            <ul class="favlist">
+            </ul>
+            <button id="totop"><a href="../javadino.html">トップに戻る</a></button>
+        </div>
+    </div>
+
+</body>
+
+<script src="../jquery-2.1.3.min.js"></script>
+<script>
+    document.getElementById('fav').addEventListener('click', function () {
+        // 保存したいページの情報を取得
+        let pageUrl = window.location.href;
+        let pageTitle = document.title;
+
+        localStorage.setItem(pageUrl, pageTitle);
+        // localStorage.setItem('PageTitle', favTitle);
+
+        alert('私の推し恐竜です！タルボサウルスをよろしく！');
+    });
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        let favoritePageElement = document.createElement('li');
+        favoritePageElement.innerHTML = '<a href="' + key + '">' + value + '</a>';
+        $(".favlist").append(favoritePageElement);
+
+        $(favoritePageElement).click(function () {
+            window.location.href = key;
+            return false;
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+.wrap{
+    width: 1000px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #708674;
+}
+
+.name{
+    width: auto;
+    padding: 30px;
+    border: 5px double;
+    background-color: bisque;
+    font-size: 42px;
+    margin: 0;
+}
+
+.dinopic{
+    width: 70%;
+    margin: 0 12%;
+    height: auto;
+}
+
+.maintex{
+    width: 80%;
+    background-color: #708674;
+    border: 4px double;
+    font-size: 20px;
+    
+}
+
+.undcont{
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin: auto;
+    background-color: bisque;
+    font-size: 21px;
+}
+.undtex{
+    width: 84%;
+    border: 4px double;
+    padding: 0.1%;
+    text-align: left;
+}
+.side{
+    width: 25%;
+    border: 4px double;
+    background-color: beige;
+}
+
+.favlist{
+    list-style: none;
+    padding: 0;
+    background-color: blanchedalmond;
+    padding: 20px 0;
+    font-size: 20px;
+    border: 2px solid;
+    line-height: 50px;
+    text-decoration: none;
+}
+#fav{
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#totop{
+    background-color: bisque;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+}
+
+.cen{
+    border: 2px double;
+    margin: 0;
+    padding-left: 3%;
+}
+.size{
+    border: 3px double;
+    margin: 0;
+    padding-left: 3%;
+}
+.weight{
+    border: 2px double;
+    margin: 0;
+    padding-left: 3%;
+}
+.tex{
+    border: 3px double;
+    margin: 0;
+    padding-left: 3%;
+}

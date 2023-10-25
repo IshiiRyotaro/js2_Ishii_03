@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" style="background-image: url(../img/earth.jpg);">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title class="pname">ステゴサウルス</title>
+    <link rel="stylesheet" href="./DinoPages.css">
+</head>
+
+<body class="wrap">
+    <div class="maincont">
+        <h1 class="name">ステゴサウルス<br>（学名: Stegosaurus）</h1>
+        <img src="../Dinopic/stegpic.jpeg" alt="" class="dinopic">
+    </div>
+    <div class="undcont">
+        <div class="undtex">
+            <p class="cen">生息<br>約1億5000万年前から約1億3800万年前の白亜紀後期<br>現在の北アメリカ大陸</p>
+            <p class="size">サイズ<br>約8メートルから9メートル</p>
+            <p class="weight">重さ<br>約5トンから7トン</p>
+            <p class="tex">説明<br>ステゴサウルスは背中に並んだ大きな骨の板と、尾にある鋭い刃物状の棘が特徴的です。<br>
+                また、四肢は太く力強い造りを持っていました。<br>
+                草食恐竜で、主に低い植物を食べていたと考えられています。<br>
+                背中の骨の板は体温調節や防御に使われたと考えられています。<br>
+                最初のステゴサウルスの化石はアメリカで発見され、その後も北アメリカなどで複数の化石が見つかっています。<br>
+                白亜紀末の大量絶滅事変によって、ステゴサウルスも絶滅しました。</p>
+        </div>
+        <div class="side">
+            <button id="fav">連れていく</button>
+            <ul class="favlist">
+            </ul>
+            <button id="totop"><a href="../javadino.html">トップに戻る</a></button>
+        </div>
+    </div>
+
+</body>
+
+<script src="../jquery-2.1.3.min.js"></script>
+<script>
+    document.getElementById('fav').addEventListener('click', function () {
+        // 保存したいページの情報を取得
+        let pageUrl = window.location.href;
+        let pageTitle = document.title;
+
+        localStorage.setItem(pageUrl, pageTitle);
+        // localStorage.setItem('PageTitle', favTitle);
+
+        alert('名前は"捨て子"サウルスではなく、『屋根に覆われたトカゲ』という意味だよ！');
+    });
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        let favoritePageElement = document.createElement('li');
+        favoritePageElement.innerHTML = '<a href="' + key + '">' + value + '</a>';
+        $(".favlist").append(favoritePageElement);
+
+        $(favoritePageElement).click(function () {
+            window.location.href = key;
+            return false;
+        });
+    }
+</script>
+
+</html>
