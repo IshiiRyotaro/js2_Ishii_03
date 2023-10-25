@@ -17,7 +17,7 @@ for(let i=0; i < localStorage.length; i++){
 $(".clear").on("click",function(){
     localStorage.clear();
     $("#favlist").empty();
-    alert('連れていた恐竜たちはすみかに帰っていきました。　　　　　　　　　バイバイ！元気でね！');
+    alert('連れていた恐竜たちはすみかに帰っていきました。　　　　　　　　　　バイバイ！元気でね！');
 });
 
 // document.getElementById('#clear').addEventListener('click', function() {
